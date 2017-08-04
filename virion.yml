@@ -1,0 +1,8 @@
+name: libpmquery
+version: 0.0.1
+antigen: libpmquery
+api:
+ - 3.0.0-ALPHA7
+php:
+ - 7.0
+author: "jasonwynn10"
