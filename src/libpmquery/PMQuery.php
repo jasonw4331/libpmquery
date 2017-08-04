@@ -33,10 +33,10 @@ class PMQuery {
 		fclose($socket);
 
 		if (empty($response) or $response === false) {
-			throw new PmQueryException("Server failed to respond");
+			throw new PmQueryException("Server failed to respond", E_WARNING);
 		}
 		if (substr($response, 0, 1) !== "\x1C") {
-			throw new PmQueryException("Unknown Error");
+			throw new PmQueryException("Unknown Error", E_WARNING);
 		}
 
 		$serverInfo = substr($response, 35);
