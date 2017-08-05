@@ -3,14 +3,14 @@ namespace libpmquery;
 
 class PMQuery {
 	/**
-	 * @param string $host
-	 * @param int $port
-	 * @param int $timeout
+	 * @param string $host Ip/dns address being queried
+	 * @param int $port Port on the ip being queried
+	 * @param int $timeout Seconds before socket times out
 	 *
-	 * @return array
+	 * @return string[]
 	 * @throws PmQueryException
 	 */
-	public static function query(string $host, int $port, int $timeout = 3) {
+	public static function query(string $host, int $port, int $timeout = 4) {
 		$socket = @fsockopen('udp://' . $host, $port, $errno, $errstr, $timeout);
 
 		if($errno or $socket === false) {
