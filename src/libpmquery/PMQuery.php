@@ -11,44 +11,60 @@ class PMQuery {
 	 * @throws PmQueryException
 	 */
 	public static function query(string $host, int $port, int $timeout = 4) {
-		$socket = @fsockopen('udp://' . $host, $port, $errno, $errstr, $timeout);
+		$socket = @fsockopen('udp://'.$host, $port, $errno, $errstr, $timeout);
 
-		if($errno or $socket === false) {
+		if($errno) {
+			fclose($socket);
+			throw new PmQueryException($errstr, $errno);
+		}elseif($socket === false) {
 			throw new PmQueryException($errstr, $errno);
 		}
 
 		stream_Set_Timeout($socket, $timeout);
 		stream_Set_Blocking($socket, true);
 
-		$randInt = mt_rand(1, 999999999);
-		$reqPacket = "\x01";
-		$reqPacket .= pack('Q*', $randInt);
-		$reqPacket .= "\x00\xff\xff\x00\xfe\xfe\xfe\xfe\xfd\xfd\xfd\xfd\x12\x34\x56\x78";
-		$reqPacket .= pack('Q*', 0);
+		// hardcoded magic https://github.com/facebookarchive/RakNet/blob/1a169895a900c9fc4841c556e16514182b75faf8/Source/RakPeer.cpp#L135
+		$OFFLINE_MESSAGE_DATA_ID = \pack('c*', 0x00, 0xFF, 0xFF, 0x00, 0xFE, 0xFE, 0xFE, 0xFE, 0xFD, 0xFD, 0xFD, 0xFD, 0x12, 0x34, 0x56, 0x78);
+		$command = \pack('cQ', 0x01, time()); // DefaultMessageIDTypes::ID_UNCONNECTED_PING + 64bit current time
+		$command .= $OFFLINE_MESSAGE_DATA_ID;
+		$command .= \pack('Q', 2); // 64bit guid
+		$length = \strlen($command);
 
-		fwrite($socket, $reqPacket, strlen($reqPacket));
+		if($length !== fwrite($socket, $command, $length)) {
+			throw new PmQueryException("Failed to write on socket.", E_WARNING);
+		}
 
-		$response = fread($socket, 4096);
+		$data = fread($socket, 4096);
 
 		fclose($socket);
 
-		if (empty($response) or $response === false) {
+		if(empty($data) or $data === false) {
 			throw new PmQueryException("Server failed to respond", E_WARNING);
 		}
-		if (substr($response, 0, 1) !== "\x1C") {
-			throw new PmQueryException("Unknown Error", E_WARNING);
+		if(substr($data, 0, 1) !== "\x1C") {
+			throw new PmQueryException("First byte is not ID_UNCONNECTED_PONG.", E_WARNING);
+		}
+		if(substr($data, 17, 16) !== $OFFLINE_MESSAGE_DATA_ID) {
+			throw new PmQueryException("Magic bytes do not match.");
 		}
 
-		$serverInfo = substr($response, 35);
-		$serverInfo = preg_replace("#§.#", "", $serverInfo);
-		$serverInfo = explode(';', $serverInfo);
+		// TODO: What are the 2 bytes after the magic?
+		$data = \substr($data, 35);
+
+		// TODO: If server-name contains a ';' it is not escaped, and will break this parsing
+		$data = \explode(';', $data);
 
 		return [
-			'motd' => $serverInfo[1],
-			'num' => $serverInfo[4],
-			'max' => $serverInfo[5],
-			'version' =>  $serverInfo[3],
-			'platform' => 'PE'
+			'GameName' => $data[0],
+			'HostName' => $data[1],
+			'Unknown1' => $data[2], // TODO: What is this?
+			'Version' => $data[3],
+			'Players' => $data[4],
+			'MaxPlayers' => $data[5],
+			'Unknown2' => $data[6], // TODO: What is this?
+			'Map' => $data[7],
+			'GameMode' => $data[8],
+			'Unknown3' => $data[9], // TODO: What is this?
 		];
 	}
 }
