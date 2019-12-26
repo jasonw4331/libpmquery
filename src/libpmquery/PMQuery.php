@@ -57,7 +57,7 @@ class PMQuery {
 		return [
 			'GameName' => $data[0],
 			'HostName' => $data[1],
-			'Unknown1' => $data[2], // TODO: What is this?
+			'Protocol' => $data[2],
 			'Version' => $data[3],
 			'Players' => $data[4],
 			'MaxPlayers' => $data[5],
