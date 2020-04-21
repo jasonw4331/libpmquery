@@ -38,6 +38,6 @@ try{
     Server::getInstance()->getLogger()->info("There are ".$players." on the queried server right now!");
 }catch(PmQueryException $e){
     //you can choose to log this if you want
-    Server::getIndstance()->getLogger()->info("The queried server is offline right now!");
+    Server::getInstance()->getLogger()->info("The queried server is offline right now!");
 }
 ```
