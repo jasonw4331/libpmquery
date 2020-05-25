@@ -7,7 +7,7 @@ class PMQuery {
 	 * @param int $port Port on the ip being queried
 	 * @param int $timeout Seconds before socket times out
 	 *
-	 * @return string[]
+	 * @return string[]|int[]
 	 * @throws PmQueryException
 	 */
 	public static function query(string $host, int $port, int $timeout = 4) {
