@@ -13,7 +13,7 @@ class PMQuery {
 	public static function query(string $host, int $port, int $timeout = 4) {
 		$socket = @fsockopen('udp://'.$host, $port, $errno, $errstr, $timeout);
 
-		if($errno) {
+		if($errno and $socket !== false) {
 			fclose($socket);
 			throw new PmQueryException($errstr, $errno);
 		}elseif($socket === false) {
