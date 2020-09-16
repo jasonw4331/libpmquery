@@ -23,7 +23,7 @@ $query['Protocol'];   // Returns the protocol version allwoed to connect
 $query['Version'];    // Returns the client version allowed to connect
 $query['Players'];    // Returns the number of players on the server currently
 $query['MaxPlayers']; // Returns the laximum player count of the server
-$query['Unknown2'];   // uhh no idea what this one is
+$query['ServerId'];   // Returns the server id
 $query['map'];        // Returns the default world name
 $query['GameMode'];   // Returns the default gamemode
 $query['Unknown3'];   // hmm yea still dunno what this is
