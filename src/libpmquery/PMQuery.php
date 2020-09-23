@@ -61,7 +61,7 @@ class PMQuery {
 			'Version' => $data[3],
 			'Players' => $data[4],
 			'MaxPlayers' => $data[5],
-			'Unknown2' => $data[6], // TODO: What is this?
+			'ServerId' => $data[6],
 			'Map' => $data[7],
 			'GameMode' => $data[8],
 			'Unknown3' => $data[9], // TODO: What is this?
