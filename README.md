@@ -19,11 +19,11 @@ The values returned will follow these values/types:
 ```php
 $query['GameName'];   // Returns the server software being used
 $query['HostName'];   // Retruns the server host name
-$query['Protocol'];   // Returns the protocol version allwoed to connect
+$query['Protocol'];   // Returns the protocol version allowed to connect
 $query['Version'];    // Returns the client version allowed to connect
 $query['Players'];    // Returns the number of players on the server currently
-$query['MaxPlayers']; // Returns the laximum player count of the server
-$query['ServerId'];   // Returns the server id
+$query['MaxPlayers']; // Returns the maximum player count of the server
+$query['ServerId'];   // Returns the raknet server id
 $query['map'];        // Returns the default world name
 $query['GameMode'];   // Returns the default gamemode
 $query['Unknown3'];   // hmm yea still dunno what this is
