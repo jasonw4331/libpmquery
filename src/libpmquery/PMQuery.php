@@ -55,16 +55,19 @@ class PMQuery {
 		$data = \explode(';', $data);
 
 		return [
-			'GameName' => $data[0],
-			'HostName' => $data[1],
-			'Protocol' => $data[2],
-			'Version' => $data[3],
-			'Players' => $data[4],
-			'MaxPlayers' => $data[5],
-			'ServerId' => $data[6],
-			'Map' => $data[7],
-			'GameMode' => $data[8],
-			'Unknown3' => $data[9], // TODO: What is this?
+			'GameName' => $Data[0] ?? null,
+			'HostName' => $Data[1] ?? null,
+			'Protocol' => $Data[2] ?? null,
+			'Version' => $Data[3] ?? null,
+			'Players' => $Data[4] ?? null,
+			'MaxPlayers' => $Data[5] ?? null,
+			'ServerId' => $Data[6] ?? null,
+			'Map' => $Data[7] ?? null,
+			'GameMode' => $Data[8] ?? null,
+			'NintendoLimited' => $Data[9] ?? null,
+			'IPv4Port' => $Data[10] ?? null,
+			'IPv6Port' => $Data[11] ?? null,
+			'Extra' => $Data[12] ?? null, // Todo: What's in this?
 		];
 	}
 }
