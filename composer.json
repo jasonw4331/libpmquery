@@ -1,0 +1,9 @@
+{
+    "name": "jasonwynn10/libpmquery",
+    "description": "A PocketMine Virion which allows plugins to query other servers for information ",
+    "type": "library",
+    "license": "LGPL-3.0-only",
+    "autoload": {
+        "psr-0": {"libpmquery\\": ["src\\libpmquery\\"]}
+    }
+}
