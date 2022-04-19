@@ -2,6 +2,9 @@
 A PocketMine Virion which allows plugins to query other servers for a selection of information
 ## Basic Usage
 This viron was made for developers to query Pocketmine-MP servers with ease. Here is some basic functionality:
+use it as a composer library by running the command below:
+
+`composer require jasonwynn10/libpmquery`
 
 ### Required imports
 The following imports are necessary to use the virion library:
