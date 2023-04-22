@@ -1,42 +1,12 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Call to function stream_set_blocking\\(\\) with incorrect case\\: stream_Set_Blocking$#"
+			message: "#^Method libpmquery\\\\PMQuery\\:\\:query\\(\\) should return array\\<string, int\\|string\\> but returns array\\<string, int\\|string\\|null\\>\\.$#"
 			count: 1
 			path: src/libpmquery/PMQuery.php
 
 		-
-			message: "#^Call to function stream_set_timeout\\(\\) with incorrect case\\: stream_Set_Timeout$#"
-			count: 1
-			path: src/libpmquery/PMQuery.php
-
-		-
-			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 1
-			path: src/libpmquery/PMQuery.php
-
-		-
-			message: "#^Function stream_set_blocking used with incorrect case\\: stream_Set_Blocking\\.$#"
-			count: 1
-			path: src/libpmquery/PMQuery.php
-
-		-
-			message: "#^Function stream_set_timeout used with incorrect case\\: stream_Set_Timeout\\.$#"
-			count: 1
-			path: src/libpmquery/PMQuery.php
-
-		-
-			message: "#^Method libpmquery\\\\PMQuery\\:\\:query\\(\\) should return array\\<int\\|string\\> but returns array\\<string, int\\|string\\|null\\>\\.$#"
-			count: 1
-			path: src/libpmquery/PMQuery.php
-
-		-
-			message: "#^Only booleans are allowed in &&, int given on the left side\\.$#"
-			count: 1
-			path: src/libpmquery/PMQuery.php
-
-		-
-			message: "#^Strict comparison using \\=\\=\\= between non\\-falsy\\-string and false will always evaluate to false\\.$#"
+			message: "#^Strict comparison using \\!\\=\\= between int and null will always evaluate to true\\.$#"
 			count: 1
 			path: src/libpmquery/PMQuery.php
 
