@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  Analysis and CS:
+  PHPstan_CS:
     name: Analysis and CS
     runs-on: ubuntu-latest
     strategy:
