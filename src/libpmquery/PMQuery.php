@@ -10,34 +10,50 @@ use function fread;
 use function fsockopen;
 use function fwrite;
 use function pack;
-use function stream_Set_Blocking;
-use function stream_Set_Timeout;
+use function stream_set_blocking;
+use function stream_set_timeout;
 use function strlen;
 use function substr;
 use function time;
 use const E_WARNING;
 
 class PMQuery{
+
 	/**
 	 * @param string $host    Ip/dns address being queried
 	 * @param int    $port    Port on the ip being queried
 	 * @param int    $timeout Seconds before socket times out
 	 *
 	 * @return string[]|int[]
+	 * @phpstan-return array{
+	 *     GameName: string|null,
+	 *     HostName: string|null,
+	 *     Protocol: string|null,
+	 *     Version: string|null,
+	 *     Players: int,
+	 *     MaxPlayers: int,
+	 *     ServerId: string|null,
+	 *     Map: string|null,
+	 *     Gamemode: string|null,
+	 *     NintendoLimited: string|null,
+	 *     IPv4Port: int,
+	 *     IPv6Port: int,
+	 *     ExtraData: string|null,
+	 * }
 	 * @throws PmQueryException
 	 */
-	public static function query(string $host, int $port, int $timeout = 4){
+	public static function query(string $host, int $port, int $timeout = 4) : array{
 		$socket = @fsockopen('udp://' . $host, $port, $errno, $errstr, $timeout);
 
-		if($errno && $socket !== false){
+		if($errno !== null && $socket !== false){
 			fclose($socket);
 			throw new PmQueryException($errstr, $errno);
 		}elseif($socket === false){
 			throw new PmQueryException($errstr, $errno);
 		}
 
-		stream_Set_Timeout($socket, $timeout);
-		stream_Set_Blocking($socket, true);
+		stream_set_timeout($socket, $timeout);
+		stream_set_blocking($socket, true);
 
 		// hardcoded magic https://github.com/facebookarchive/RakNet/blob/1a169895a900c9fc4841c556e16514182b75faf8/Source/RakPeer.cpp#L135
 		$OFFLINE_MESSAGE_DATA_ID = pack('c*', 0x00, 0xFF, 0xFF, 0x00, 0xFE, 0xFE, 0xFE, 0xFE, 0xFD, 0xFD, 0xFD, 0xFD, 0x12, 0x34, 0x56, 0x78);
@@ -54,10 +70,10 @@ class PMQuery{
 
 		fclose($socket);
 
-		if(empty($data) || $data === false){
+		if($data === false || $data === ''){
 			throw new PmQueryException("Server failed to respond", E_WARNING);
 		}
-		if(substr($data, 0, 1) !== "\x1C"){
+		if(!str_starts_with($data, "\x1C")){
 			throw new PmQueryException("First byte is not ID_UNCONNECTED_PONG.", E_WARNING);
 		}
 		if(substr($data, 17, 16) !== $OFFLINE_MESSAGE_DATA_ID){
