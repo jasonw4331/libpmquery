@@ -10,6 +10,7 @@ use function fread;
 use function fsockopen;
 use function fwrite;
 use function pack;
+use function str_starts_with;
 use function stream_set_blocking;
 use function stream_set_timeout;
 use function strlen;
