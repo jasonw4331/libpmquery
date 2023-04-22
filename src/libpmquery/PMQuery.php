@@ -35,18 +35,18 @@ class PMQuery{
 	 *     MaxPlayers: int,
 	 *     ServerId: string|null,
 	 *     Map: string|null,
-	 *     Gamemode: string|null,
+	 *     GameMode: string|null,
 	 *     NintendoLimited: string|null,
 	 *     IPv4Port: int,
 	 *     IPv6Port: int,
-	 *     ExtraData: string|null,
+	 *     Extra: string|null,
 	 * }
 	 * @throws PmQueryException
 	 */
 	public static function query(string $host, int $port, int $timeout = 4) : array{
 		$socket = @fsockopen('udp://' . $host, $port, $errno, $errstr, $timeout);
 
-		if($errno !== null && $socket !== false){
+		if($errno !== 0 && $socket !== false){
 			fclose($socket);
 			throw new PmQueryException($errstr, $errno);
 		}elseif($socket === false){
