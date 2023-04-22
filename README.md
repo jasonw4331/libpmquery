@@ -1,7 +1,11 @@
-# libpmquery
+# libPMQuery
+
+[![Poggit-Ci](https://poggit.pmmp.io/ci.shield/jasonw4331/libpmquery/libpmquery)](https://poggit.pmmp.io/ci/jasonw4331/libpmquery/libpmquery)
+
 A PocketMine Virion which allows plugins to query other servers for a selection of information
+
 ## Basic Usage
-This viron was made for developers to query Pocketmine-MP servers with ease. Here is some basic functionality:
+This virion was made for developers to query Pocketmine-MP servers with ease. Here is some basic functionality:
 
 ### Required imports
 The following imports are necessary to use the virion library:
