@@ -1,0 +1,28 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  Analysis and CS:
+    name: Analysis and CS
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup PHP and tools
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.1
+          tools: php-cs-fixer:3.11, phpstan
+
+      - name: Run PHP-CS-Fixer
+        run: php-cs-fixer fix --dry-run --diff --config=.php-cs-fixer.php
+
+      - name: Run PHPStan
+        run: phpstan analyse --no-progress --no-interaction --error-format=table

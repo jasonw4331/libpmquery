@@ -1,0 +1,162 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Call to function is_bool\\(\\) with bool will always evaluate to true\\.$#"
+			count: 3
+			path: ../../src/Main.php
+
+		-
+			message: "#^Call to function is_int\\(\\) with int will always evaluate to true\\.$#"
+			count: 1
+			path: ../../src/Main.php
+
+		-
+			message: "#^Method jasonwynn10\\\\PoliteTeleports\\\\Main\\:\\:getPlayerSettings\\(\\) should return array\\{Teleport Delay\\: int, Teleport Countdown\\: bool, Alert Teleporting\\: bool, Alert Receiver\\: bool\\}\\|null but returns bool\\|int\\.$#"
+			count: 1
+			path: ../../src/Main.php
+
+		-
+			message: "#^Offset 'Alert Receiver' on array\\{Teleport Delay\\: int, Teleport Countdown\\: bool, Alert Teleporting\\: bool, Alert Receiver\\: bool\\} in isset\\(\\) always exists and is not nullable\\.$#"
+			count: 1
+			path: ../../src/Main.php
+
+		-
+			message: "#^Offset 'Alert Teleporting' on array\\{Teleport Delay\\: int, Teleport Countdown\\: bool, Alert Teleporting\\: bool, Alert Receiver\\: bool\\} in isset\\(\\) always exists and is not nullable\\.$#"
+			count: 1
+			path: ../../src/Main.php
+
+		-
+			message: "#^Offset 'Teleport Countdown' on array\\{Teleport Delay\\: int, Teleport Countdown\\: bool, Alert Teleporting\\: bool, Alert Receiver\\: bool\\} in isset\\(\\) always exists and is not nullable\\.$#"
+			count: 1
+			path: ../../src/Main.php
+
+		-
+			message: "#^Offset 'Teleport Delay' on array\\{Teleport Delay\\: int, Teleport Countdown\\: bool, Alert Teleporting\\: bool, Alert Receiver\\: bool\\} in isset\\(\\) always exists and is not nullable\\.$#"
+			count: 1
+			path: ../../src/Main.php
+
+		-
+			message: "#^Result of \\|\\| is always false\\.$#"
+			count: 4
+			path: ../../src/Main.php
+
+		-
+			message: "#^Static property jasonwynn10\\\\PoliteTeleports\\\\Main\\:\\:\\$playerSettings \\(array\\{Teleport Delay\\: int, Teleport Countdown\\: bool, Alert Teleporting\\: bool, Alert Receiver\\: bool\\}\\) does not accept default value of type array\\{\\}\\.$#"
+			count: 1
+			path: ../../src/Main.php
+
+		-
+			message: "#^Static property jasonwynn10\\\\PoliteTeleports\\\\Main\\:\\:\\$playerSettings \\(array\\{Teleport Delay\\: int, Teleport Countdown\\: bool, Alert Teleporting\\: bool, Alert Receiver\\: bool\\}\\) does not accept non\\-empty\\-array\\<string, array\\<int\\|string, mixed\\>\\|bool\\|int\\>\\.$#"
+			count: 1
+			path: ../../src/Main.php
+
+		-
+			message: "#^Static property jasonwynn10\\\\PoliteTeleports\\\\Main\\:\\:\\$playerSettings \\(array\\{Teleport Delay\\: int, Teleport Countdown\\: bool, Alert Teleporting\\: bool, Alert Receiver\\: bool\\}\\) does not accept non\\-empty\\-array\\<string, array\\{Teleport Delay\\: int, Teleport Countdown\\: bool, Alert Teleporting\\: bool, Alert Receiver\\: bool\\}\\|bool\\|int\\>\\.$#"
+			count: 1
+			path: ../../src/Main.php
+
+		-
+			message: "#^Method jasonwynn10\\\\PoliteTeleports\\\\commands\\\\TpAcceptCommand\\:\\:execute\\(\\) should return mixed but return statement is missing\\.$#"
+			count: 1
+			path: ../../src/commands/TpAcceptCommand.php
+
+		-
+			message: "#^Offset 'Teleport Delay' does not exist on array\\{Teleport Delay\\: int, Teleport Countdown\\: bool, Alert Teleporting\\: bool, Alert Receiver\\: bool\\}\\|null\\.$#"
+			count: 2
+			path: ../../src/commands/TpAcceptCommand.php
+
+		-
+			message: "#^Method jasonwynn10\\\\PoliteTeleports\\\\commands\\\\TpAskCommand\\:\\:execute\\(\\) should return mixed but return statement is missing\\.$#"
+			count: 1
+			path: ../../src/commands/TpAskCommand.php
+
+		-
+			message: "#^Casting to bool something that's already bool\\.$#"
+			count: 3
+			path: ../../src/commands/TpConfig.php
+
+		-
+			message: "#^Casting to int something that's already int\\.$#"
+			count: 1
+			path: ../../src/commands/TpConfig.php
+
+		-
+			message: "#^Dynamic call to static method jasonwynn10\\\\PoliteTeleports\\\\Main\\:\\:getPlayerSettings\\(\\)\\.$#"
+			count: 1
+			path: ../../src/commands/TpConfig.php
+
+		-
+			message: "#^Dynamic call to static method jasonwynn10\\\\PoliteTeleports\\\\Main\\:\\:updatePlayerSettings\\(\\)\\.$#"
+			count: 1
+			path: ../../src/commands/TpConfig.php
+
+		-
+			message: "#^Method jasonwynn10\\\\PoliteTeleports\\\\commands\\\\TpConfig\\:\\:execute\\(\\) should return mixed but return statement is missing\\.$#"
+			count: 1
+			path: ../../src/commands/TpConfig.php
+
+		-
+			message: "#^Offset 'Alert Receiver' does not exist on array\\{Teleport Delay\\: int, Teleport Countdown\\: bool, Alert Teleporting\\: bool, Alert Receiver\\: bool\\}\\|null\\.$#"
+			count: 2
+			path: ../../src/commands/TpConfig.php
+
+		-
+			message: "#^Offset 'Alert Teleporting' does not exist on array\\{Teleport Delay\\: int, Teleport Countdown\\: bool, Alert Teleporting\\: bool, Alert Receiver\\: bool\\}\\|null\\.$#"
+			count: 2
+			path: ../../src/commands/TpConfig.php
+
+		-
+			message: "#^Offset 'Language' does not exist on array\\{Teleport Delay\\: int, Teleport Countdown\\: bool, Alert Teleporting\\: bool, Alert Receiver\\: bool\\}\\|null\\.$#"
+			count: 1
+			path: ../../src/commands/TpConfig.php
+
+		-
+			message: "#^Offset 'Teleport Countdown' does not exist on array\\{Teleport Delay\\: int, Teleport Countdown\\: bool, Alert Teleporting\\: bool, Alert Receiver\\: bool\\}\\|null\\.$#"
+			count: 2
+			path: ../../src/commands/TpConfig.php
+
+		-
+			message: "#^Offset 'Teleport Delay' does not exist on array\\{Teleport Delay\\: int, Teleport Countdown\\: bool, Alert Teleporting\\: bool, Alert Receiver\\: bool\\}\\|null\\.$#"
+			count: 2
+			path: ../../src/commands/TpConfig.php
+
+		-
+			message: "#^Parameter \\#2 \\$settings of method jasonwynn10\\\\PoliteTeleports\\\\Main\\:\\:updatePlayerSettings\\(\\) expects array\\{Teleport Delay\\: int, Teleport Countdown\\: bool, Alert Teleporting\\: bool, Alert Receiver\\: bool\\}, array\\{Teleport Delay\\?\\: int, Teleport Countdown\\?\\: bool, Alert Teleporting\\?\\: bool, Alert Receiver\\?\\: bool, Language\\?\\: string\\} given\\.$#"
+			count: 1
+			path: ../../src/commands/TpConfig.php
+
+		-
+			message: "#^Method jasonwynn10\\\\PoliteTeleports\\\\commands\\\\TpDenyCommand\\:\\:execute\\(\\) should return mixed but return statement is missing\\.$#"
+			count: 1
+			path: ../../src/commands/TpDenyCommand.php
+
+		-
+			message: "#^Method jasonwynn10\\\\PoliteTeleports\\\\commands\\\\TpaHereCommand\\:\\:execute\\(\\) should return mixed but return statement is missing\\.$#"
+			count: 1
+			path: ../../src/commands/TpaHereCommand.php
+
+		-
+			message: "#^Cannot call method getConfig\\(\\) on pocketmine\\\\plugin\\\\Plugin\\|null\\.$#"
+			count: 1
+			path: ../../src/task/HandleTeleportTask.php
+
+		-
+			message: "#^Offset 'Alert Receiver' does not exist on array\\{Teleport Delay\\: int, Teleport Countdown\\: bool, Alert Teleporting\\: bool, Alert Receiver\\: bool\\}\\|null\\.$#"
+			count: 4
+			path: ../../src/task/HandleTeleportTask.php
+
+		-
+			message: "#^Offset 'Alert Teleporting' does not exist on array\\{Teleport Delay\\: int, Teleport Countdown\\: bool, Alert Teleporting\\: bool, Alert Receiver\\: bool\\}\\|null\\.$#"
+			count: 3
+			path: ../../src/task/HandleTeleportTask.php
+
+		-
+			message: "#^Offset 'Teleport Countdown' does not exist on array\\{Teleport Delay\\: int, Teleport Countdown\\: bool, Alert Teleporting\\: bool, Alert Receiver\\: bool\\}\\|null\\.$#"
+			count: 1
+			path: ../../src/task/HandleTeleportTask.php
+
+		-
+			message: "#^Parameter \\#1 \\$source of static method pocketmine\\\\command\\\\Command\\:\\:broadcastCommandMessage\\(\\) expects pocketmine\\\\command\\\\CommandSender, pocketmine\\\\player\\\\Player\\|null given\\.$#"
+			count: 1
+			path: ../../src/task/HandleTeleportTask.php
+
