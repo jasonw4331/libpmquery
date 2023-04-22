@@ -1,6 +1,7 @@
 {
 	"name": "jasonwynn10/libpmquery",
 	"description": "A library for querying Minecraft Bedrock servers",
+	"version": "1.0.0",
 	"minimum-stability": "stable",
 	"license": "GNU Lesser General Public License v3.0",
 	"authors": [
