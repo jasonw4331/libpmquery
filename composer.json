@@ -1,0 +1,42 @@
+{
+	"name": "jasonwynn10/libpmquery",
+	"description": "A library for querying Minecraft Bedrock servers",
+	"version": "1.0.0",
+	"minimum-stability": "stable",
+	"license": "LGPL-3.0-or-later",
+	"authors": [
+		{
+			"name": "jasonw_4331",
+			"email": "jasonwynn10@me.com"
+		}
+	],
+	"require": {
+		"php": "^7.0"
+	},
+	"require-dev": {
+		"phpstan/phpstan": "^1.10.14",
+		"phpstan/phpstan-strict-rules": "^1.5.1",
+		"phpstan/extension-installer": "^1.3.0",
+		"friendsofphp/php-cs-fixer": "^3.11"
+	},
+	"autoload": {
+		"psr-0": {
+			"libpmquery\\": "src/libpmquery"
+		}
+	},
+	"config": {
+		"allow-plugins": {
+			"phpstan/extension-installer": true
+		}
+	},
+	"scripts": {
+		"make-baseline": "@php ./vendor/bin/phpstan analyse -b phpstan-baseline.php --allow-empty-baseline -c phpstan.neon.dist",
+		"fix-codestyle": "@php ./vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.php --verbose --diff"
+	},
+	"extra": {
+		"virion": {
+			"spec": "3.0",
+			"namespace-root": "libpmquery"
+		}
+	}
+}
