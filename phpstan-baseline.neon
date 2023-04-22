@@ -1,7 +1,7 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Method libpmquery\\\\PMQuery\\:\\:query\\(\\) should return array\\<string, int\\|string\\> but returns array\\<string, int\\|string\\|null\\>\\.$#"
+			message: "#^Method libpmquery\\\\PMQuery\\:\\:query\\(\\) should return array\\{GameName\\: string\\|null, HostName\\: string\\|null, Protocol\\: string\\|null, Version\\: string\\|null, Players\\: int, MaxPlayers\\: int, ServerId\\: string\\|null, Map\\: string\\|null, \\.\\.\\.\\} but returns array\\{GameName\\: string\\|null, HostName\\: string\\|null, Protocol\\: string\\|null, Version\\: string\\|null, Players\\: int, MaxPlayers\\: int, ServerId\\: string\\|null, Map\\: string\\|null, \\.\\.\\.\\}\\.$#"
 			count: 1
 			path: src/libpmquery/PMQuery.php
 
