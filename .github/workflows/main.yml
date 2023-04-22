@@ -22,7 +22,7 @@ jobs:
           tools: phpstan
 
       - name: Run PhpStan
-        run: phpstan analyse --no-progress src
+        run: phpstan analyse --no-progress src -c phpstan.neon.dist
 
   CodeStyle_Checks:
     name: CodeStyle Checks
