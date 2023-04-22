@@ -27,7 +27,8 @@
 		}
 	},
 	"scripts": {
-		"make-baseline": "@php ./vendor/bin/phpstan analyse -b -c phpstan.neon.dist"
+		"make-baseline": "@php ./vendor/bin/phpstan analyse -b -c phpstan.neon.dist",
+		"fix-codestyle": "@php ./vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.php --verbose --diff"
 	},
 	"extra": {
 		"virion": {
