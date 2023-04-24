@@ -2,6 +2,7 @@
 	"name": "jasonw4331/libpmquery",
 	"description": "A library for querying Minecraft Bedrock servers",
 	"version": "1.0.0",
+	"type": "library",
 	"minimum-stability": "stable",
 	"license": "LGPL-3.0-or-later",
 	"authors": [
