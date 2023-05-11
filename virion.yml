@@ -2,6 +2,6 @@ name: libpmquery
 version: 1.0.0
 antigen: libpmquery
 php:
- - 7.0
+ - 7.4
  - 8.0
 author: "jasonw4331"
