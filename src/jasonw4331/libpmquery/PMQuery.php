@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace libpmquery;
+namespace jasonw4331\libpmquery;
 
 use function explode;
 use function fclose;

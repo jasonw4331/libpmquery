@@ -10,8 +10,8 @@ This virion was made for developers to query Pocketmine-MP servers with ease. He
 ### Required imports
 The following imports are necessary to use the virion library:
 ```php
-use libpmquery\PMQuery;
-use libpmquery\PmQueryException;
+use jasonw4331\libpmquery\PMQuery;
+use jasonw4331\libpmquery\PmQueryException;
 ```
 
 ### API
