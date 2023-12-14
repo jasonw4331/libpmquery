@@ -12,7 +12,7 @@
 	"prefer-stable": true,
 	"autoload": {
 		"psr-4": {
-			"libpmquery\\": "/src/libpmquery"
+			"jasonw4331\\libpmquery\\": "/src/jasonw4331/libpmquery"
 		}
 	},
 	"require": {
