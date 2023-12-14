@@ -36,7 +36,7 @@
 	"extra": {
 		"virion": {
 			"spec": "3.0",
-			"namespace-root": "libpmquery"
+			"namespace-root": "jasonw4331\\libpmquery"
 		}
 	}
 }
